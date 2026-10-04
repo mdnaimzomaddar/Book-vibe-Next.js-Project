@@ -1,5 +1,5 @@
 import React from 'react';
-import BookCard from './BookCard';
+import BookCard from '../components/BookDetails/BookCard';
 
 const getBooks = async() =>{
     const respons = await fetch('http://localhost:3000/booksData.json')

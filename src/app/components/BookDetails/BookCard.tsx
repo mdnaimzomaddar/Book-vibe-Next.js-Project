@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { FaRegStar } from "react-icons/fa";
 
 interface Book {
+  bookId: string;
   bookName: string;
   author: string;
   image: string;
@@ -10,7 +12,7 @@ interface Book {
 }
 
 const BookCard = ({ book }: { book: Book }) => {
-  const { bookName, author, image, rating, category, tags } = book;
+  const { bookId, bookName, author, image, rating, category, tags } = book;
 
   return (
     <div className="card bg-base-100 shadow-sm border border-slate-100 p-6 rounded-2xl flex flex-col justify-between">
@@ -41,9 +43,11 @@ const BookCard = ({ book }: { book: Book }) => {
           </div>
 
           {/* Book Info */}
-          <h2 className="card-title text-2xl font-bold text-[#131313] mt-2">
-            {bookName}
-          </h2>
+          <Link href={`/books/${book.bookId}`}>
+            <h2 className="card-title text-2xl font-bold text-[#131313] mt-2">
+              {bookName}
+            </h2>
+          </Link>
           <p className="font-medium text-slate-600">
             By: {author}
           </p>
